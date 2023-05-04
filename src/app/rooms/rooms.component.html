@@ -1,0 +1,27 @@
+<h2>welcome to {{ hotelName }}</h2>
+
+<div [hidden]="hideRooms">
+  Total number of Rooms:
+  <div [innerText]="numberOfRooms"></div>
+</div>
+
+{{ rooms?.availableRooms ?? "No Rooms" }}
+
+<!-- {{roomList | json}} -->
+<div *ngIf="selectedRoom">
+  {{selectedRoom|json}}
+</div>
+
+<div *ngIf="rooms.availableRooms > 0">
+  <hinv-rooms-list 
+    [rooms]="roomList"
+    (selectedRoom)="selectRoom($event)"
+  ></hinv-rooms-list>
+</div>
+
+<button (click)="toggle()" class="btn btn-primary">toggle</button>
+<div>
+  <p><input type="number" [(ngModel)]="num1" /></p>
+  <p><input type="number" [(ngModel)]="num2" /></p>
+  <p>Total sum is equal to: {{ num1 + num2 }}</p>
+</div>

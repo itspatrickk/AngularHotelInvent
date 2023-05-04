@@ -1,0 +1,20 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+h1{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.even{
+    background-color: steelblue;
+    color: white;
+}
+.odd{
+    background-color: tomato;
+    color: white;
+}
+table{
+    text-align: center;
+    word-spacing: 1cap;
+    
+}

@@ -1,0 +1,39 @@
+<h1>Rooms List</h1>
+<table class="table">
+    <tr>
+      <th>Index</th>
+      <th>Available or Not Available</th>
+      <th>Room Number</th>
+      <th>Room Type</th>
+      <th>Room Amenities</th>
+      <th>Room Price</th>
+      <th>Room Checkin Time</th>
+      <th>Ratings</th>
+      <th>Select Room</th>
+      
+    </tr>
+    <tr
+      [ngClass]="e ? 'even' : 'odd'"
+      *ngFor="
+        let rooms of rooms | slice : 0 : 5;
+        let e = even;
+        let o = odd;
+        let i = index
+      "
+    >
+      <td>{{ i }}</td>
+      <td>{{ e ? "Even" : "Odd" }}</td>
+      <td>{{ rooms.roomNumber }}</td>
+      <td>{{ rooms.roomType }}</td>
+      <td>{{ rooms.amenities | titlecase }}</td>
+      <td>{{ rooms.price | currency : "PHP" }}</td>
+      <td>{{ rooms.checkinTime | date : "dd/MMM/yyyy" }}</td>
+      <td>{{ rooms.rating | number : "1.0-3" }}</td>
+      <td><button
+        class="btn btn-primary"
+        (click)="selectRoom(rooms)
+        ">Select Room</button>
+      </td>
+     
+    </tr>
+  </table>
